@@ -23,7 +23,7 @@ func NewRabbitMQConnection(cfg *config.RabbitMQConfig) *RabbitMQConnection {
 	if os.Getenv("env") == "test" {
 		connStr = os.Getenv("RABBITMQ_STR")
 		if connStr == "" {
-			log.Fatalf("Failed to connect to RabbitMQ: %v", "RABBITMQ_STR is empty")
+			log.Fatal("RABBITMQ_STR is empty")
 		}
 	} else {
 		connStr = fmt.Sprintf("amqp://%s:%s@%s:%s/%s",
